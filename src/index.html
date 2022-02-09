@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#update_product").hide();
+        $("#table_body").on("click", "#edit", function () {
+          $("#add_product").hide();
+          $("#update_product").show();
+          $('.table tbody'.on('click','#delete',function(){
+            $(this).closest('td').remove();
+          }))
+        });
+
+          // $(document).ready(function () {
+          //   $("#table_product").on("click","#delete",function () {
+          //     if (!confirm("Do you want to delete")) {
+          //       return false;
+          //     }
+          //     $("#row").empty();
+          //   });
+          // });
+
+      
+        });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="add_product_form">
+        <label for="product_sku">
+          <span>Product SKU</span>
+          <input type="text" name="product_sku" id="product_sku" />
+        </label>
+        <label for="product_name">
+          <span>Product Name</span>
+          <input type="text" name="product_name" id="product_name" />
+        </label>
+        <label for="product_price">
+          <span>Product Price</span>
+          <input type="text" name="product_price" id="product_price" />
+        </label>
+        <label for="product_quantity">
+          <span>Product Quantity</span>
+          <input type="text" name="product_quantity" id="product_quantity" />
+        </label>
+
+        <p class="submit">
+          <input
+            type="button"
+            name="add_product"
+            id="add_product"
+            value="Add Product"
+            onclick="submitform()"
+          />
+        </p>
+        <p class="btn">
+          <input
+            type="button"
+            name="update_product"
+            id="update_product"
+            value="Update Product"
+          />
+        </p>
+      </div>
+      <div id="notification">
+        <div class="success">
+          Product Added Successfully.<a href="#" class="close">X</a>
+        </div>
+        <div class="error">
+          There is some problem.<a href="#" class="close">X</a>
+        </div>
+      </div>
+      <div id="product_list">
+        <table class="table">
+          <tbody>
+          <tr id="row" >
+            <th >SKU</th>
+            <th >Name</th>
+            <th >Price</th>
+            <th >Quantity</th>
+            <th >Action</th>
+          </tr>
+        </tbody> 
+          <tbody id="table_body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="result"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
